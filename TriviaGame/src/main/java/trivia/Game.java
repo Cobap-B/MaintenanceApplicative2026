@@ -1,4 +1,4 @@
-﻿package trivia;
+package trivia;
 
 import java.util.Objects;
 

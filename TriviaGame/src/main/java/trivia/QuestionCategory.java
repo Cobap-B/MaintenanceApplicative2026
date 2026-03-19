@@ -1,4 +1,4 @@
-﻿package trivia;
+package trivia;
 
 public enum QuestionCategory {
     POP,

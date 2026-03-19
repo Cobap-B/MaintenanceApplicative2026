@@ -1,4 +1,4 @@
-﻿package trivia;
+package trivia;
 
 public class Player {
     private final String name;
