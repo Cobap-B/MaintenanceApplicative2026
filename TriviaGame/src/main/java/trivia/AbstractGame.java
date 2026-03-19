@@ -35,6 +35,7 @@ public abstract class AbstractGame implements IGame {
         if (current.isInPenaltyBox()) {
             if (roll % 2 != 0) {
                 isGettingOutOfPenaltyBox = true;
+                current.setInPenaltyBox(false);
                 System.out.println(current.getName() + " is getting out of the penalty box");
                 movePlayer(current, roll);
                 logCurrentPosition(current);
