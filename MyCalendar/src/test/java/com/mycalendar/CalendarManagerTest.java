@@ -1,3 +1,4 @@
+package com.mycalendar;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDateTime;
