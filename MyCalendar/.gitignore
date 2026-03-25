@@ -1,0 +1,26 @@
+# Maven
+/target/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ
+*.iml
+.idea/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE-specific logs
+*.log
+
+
+# Temporary files
+*~
+*.tmp
