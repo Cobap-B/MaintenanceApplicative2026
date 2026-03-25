@@ -17,6 +17,10 @@
 .DS_Store
 Thumbs.db
 
+# Java compile artifacts
+*.class
+*.lst
+
 # IDE-specific logs
 *.log
 
