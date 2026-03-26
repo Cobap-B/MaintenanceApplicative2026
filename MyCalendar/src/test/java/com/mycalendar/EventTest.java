@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
 
+import com.mycalendar.domaine.*;
+
 public class EventTest {
 
    @Test

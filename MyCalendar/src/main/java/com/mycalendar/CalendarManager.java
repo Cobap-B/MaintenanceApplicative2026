@@ -3,6 +3,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mycalendar.Domaine.Event;
+
 public class CalendarManager {
     public List<Event> events;
 
