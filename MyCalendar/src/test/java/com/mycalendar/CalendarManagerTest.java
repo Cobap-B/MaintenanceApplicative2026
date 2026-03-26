@@ -1,4 +1,5 @@
 package com.mycalendar;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDateTime;
@@ -9,11 +10,12 @@ import com.mycalendar.domaine.*;
 
 public class CalendarManagerTest {
 
-  @Test
+    @Test
     void should_add_event_to_calendar() {
         CalendarManager calendar = new CalendarManager();
 
         Event event = new RendezVousPersonnel(
+            new EventId("1"),
             new TitreEvenement("Dentiste"),
             new DateEvenement(LocalDateTime.of(2025, 3, 26, 10, 0)),
             new DureeEvenement(30)
@@ -29,6 +31,7 @@ public class CalendarManagerTest {
         CalendarManager calendar = new CalendarManager();
 
         Event event = new RendezVousPersonnel(
+            new EventId("1"),
             new TitreEvenement("Dentiste"),
             new DateEvenement(LocalDateTime.of(2025, 3, 26, 10, 0)),
             new DureeEvenement(30)
@@ -61,12 +64,14 @@ public class CalendarManagerTest {
         CalendarManager calendar = new CalendarManager();
 
         Event e1 = new RendezVousPersonnel(
+            new EventId("1"),
             new TitreEvenement("Dentiste"),
             new DateEvenement(LocalDateTime.of(2025, 3, 26, 10, 0)),
             new DureeEvenement(60)
         );
 
         Event e2 = new RendezVousPersonnel(
+            new EventId("2"),
             new TitreEvenement("Coiffeur"),
             new DateEvenement(LocalDateTime.of(2025, 3, 26, 10, 30)),
             new DureeEvenement(30)
@@ -80,12 +85,14 @@ public class CalendarManagerTest {
         CalendarManager calendar = new CalendarManager();
 
         Event e1 = new RendezVousPersonnel(
+            new EventId("1"),
             new TitreEvenement("Dentiste"),
             new DateEvenement(LocalDateTime.of(2025, 3, 26, 10, 0)),
             new DureeEvenement(30)
         );
 
         Event e2 = new RendezVousPersonnel(
+            new EventId("2"),
             new TitreEvenement("Sport"),
             new DateEvenement(LocalDateTime.of(2025, 3, 26, 11, 0)),
             new DureeEvenement(30)
@@ -113,5 +120,4 @@ public class CalendarManagerTest {
 
         assertTrue(calendar.tousLesEvenements().isEmpty());
     }
-
 }
