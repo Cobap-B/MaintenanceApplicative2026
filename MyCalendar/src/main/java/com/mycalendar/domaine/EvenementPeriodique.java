@@ -38,4 +38,15 @@ public final class EvenementPeriodique implements Event {
     public EventId id() {
         return id;
     }
+    
+    @Override
+    public boolean estDansPeriode(DateEvenement debut, DateEvenement fin) {
+        return !dateDebut.toLocalDateTime().isBefore(debut.toLocalDateTime()) &&
+            !dateDebut.toLocalDateTime().isAfter(fin.toLocalDateTime());
+    }
+
+    @Override
+    public boolean estEnConflitAvec(Event autre) {
+        return false;
+    }
 }
