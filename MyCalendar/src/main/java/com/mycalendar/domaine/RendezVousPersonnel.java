@@ -2,11 +2,13 @@ package com.mycalendar.domaine;
 
 public final class RendezVousPersonnel implements Event {
 
+    private final EventId id;
     private final TitreEvenement titre;
     private final DateEvenement date;
     private final DureeEvenement duree;
 
-    public RendezVousPersonnel(TitreEvenement titre, DateEvenement date, DureeEvenement duree) {
+    public RendezVousPersonnel(EventId id, TitreEvenement titre, DateEvenement date, DureeEvenement duree) {
+        this.id = id;
         this.titre = titre;
         this.date = date;
         this.duree = duree;
@@ -15,6 +17,21 @@ public final class RendezVousPersonnel implements Event {
     @Override
     public String description() {
         return "RDV : " + titre + " à " + date;
+    }
+
+    @Override
+    public DateEvenement dateDebut() {
+        return date;
+    }
+
+    @Override
+    public DureeEvenement duree() {
+        return duree;
+    }
+
+    @Override
+    public EventId id() {
+        return id;
     }
 
     @Override
@@ -33,4 +50,5 @@ public final class RendezVousPersonnel implements Event {
 
         return debut1.isBefore(fin2) && fin1.isAfter(debut2);
     }
+
 }
