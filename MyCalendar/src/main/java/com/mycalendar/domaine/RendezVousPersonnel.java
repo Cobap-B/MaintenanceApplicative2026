@@ -16,4 +16,21 @@ public final class RendezVousPersonnel implements Event {
     public String description() {
         return "RDV : " + titre + " à " + date;
     }
+
+    @Override
+    public boolean estDansPeriode(DateEvenement debut, DateEvenement fin) {
+        return !date.toLocalDateTime().isBefore(debut.toLocalDateTime()) &&
+            !date.toLocalDateTime().isAfter(fin.toLocalDateTime());
+    }
+
+    @Override
+    public boolean estEnConflitAvec(Event autre) {
+        var debut1 = date.toLocalDateTime();
+        var fin1 = debut1.plusMinutes(duree.toMinutes());
+
+        var debut2 = autre.dateDebut().toLocalDateTime();
+        var fin2 = debut2.plusMinutes(autre.duree().toMinutes());
+
+        return debut1.isBefore(fin2) && fin1.isAfter(debut2);
+    }
 }
