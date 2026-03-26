@@ -39,14 +39,37 @@ public final class EvenementPeriodique implements Event {
         return id;
     }
     
+    // Sans if je sais pas comment faire ca
     @Override
     public boolean estDansPeriode(DateEvenement debut, DateEvenement fin) {
-        return !dateDebut.toLocalDateTime().isBefore(debut.toLocalDateTime()) &&
-            !dateDebut.toLocalDateTime().isAfter(fin.toLocalDateTime());
+        var occurrence = dateDebut.toLocalDateTime();
+        var finPeriode = fin.toLocalDateTime();
+
+        while (!occurrence.isAfter(finPeriode)) {
+            if (!occurrence.isBefore(debut.toLocalDateTime())) {
+                return true;
+            }
+            occurrence = occurrence.plusDays(frequence.toInt());
+        }
+        return false;
     }
 
+    // Sans if je sais pas comment faire ca
     @Override
     public boolean estEnConflitAvec(Event autre) {
+        var occurrence = dateDebut.toLocalDateTime();
+        var dureeMinutes = duree.toMinutes();
+        var finAutre = autre.dateDebut().toLocalDateTime().plusMinutes(autre.duree().toMinutes());
+
+    
+        while (occurrence.isBefore(finAutre)) {
+            var finOccurrence = occurrence.plusMinutes(dureeMinutes);
+            if (occurrence.isBefore(finAutre) && finOccurrence.isAfter(autre.dateDebut().toLocalDateTime())) {
+                return true; 
+            }
+            occurrence = occurrence.plusDays(frequence.toInt());
+        }
+
         return false;
     }
 }
